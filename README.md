@@ -186,43 +186,6 @@ src/
 
 ---
 
-## Evaluation Criteria
-
-You will be evaluated on:
-
-1. **Functionality** - Does the application work as specified?
-2. **Code Quality** - Is the code clean, organized, and maintainable?
-3. **React Best Practices** - Are you using React patterns correctly?
-4. **User Experience** - Is the application intuitive and responsive?
-5. **Error Handling** - Does the app handle edge cases gracefully?
-
----
-
-## Bonus Points (Optional)
-
-If you finish early, consider adding:
-
-- Loading spinners while fetching data
-- Error messages for failed API calls
-- Styled components or CSS modules for better styling
-- A "back to home" button on the employees page
-- Responsive design for mobile devices
-- Search/filter functionality for employees
-
----
-
-## Tips
-
-- Start with the routing structure in \`App.js\`
-- Build one page at a time
-- Test your API endpoints in the browser before integrating
-- Use React DevTools to debug state and props
-- Check the browser console for errors
-- Use \`useParams\` from React Router to read URL parameters
-- Use \`useNavigate\` from React Router to programmatically navigate
-
----
-
 ## Troubleshooting
 
 ### API Not Working?
@@ -235,12 +198,6 @@ If port 3000 or 3001 is already in use, you can change the ports:
 
 ### CORS Issues?
 JSON Server automatically handles CORS, but make sure you're making requests to \`http://localhost:3001\`
-
----
-
-## Time Estimate
-
-This project should take approximately **2-4 hours** to complete, depending on your experience level.
 
 ---
 
