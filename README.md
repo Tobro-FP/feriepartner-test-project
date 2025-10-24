@@ -1,70 +1,247 @@
-# Getting Started with Create React App
+# Feriepartner Test Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Feriepartner Test! This project is designed to assess your React skills by building a simple employee directory application.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+You will build a small React application that displays company information and allows users to browse employee profiles. The backend API is already set up for you - your task is to implement the frontend.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What's Already Done
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ✅ Basic React app created with Create React App
+- ✅ Mock REST API with employee data (JSON Server)
+- ✅ Fake employee images provided via API
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Your Task
 
-### `npm run build`
+Build a React application with the following features:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Landing Page (`/`)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Create a landing page that displays:
+- **Company name**: "Feriepartner"
+- **Company slogan**: "Your Gateway to Amazing Holidays"
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The company name should be **clickable** and navigate to the employees page when clicked.
 
-### `npm run eject`
+### 2. Employees Page (`/employees`)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Create an employees page that includes:
+- A **dropdown menu** populated with employee names
+- Display the dropdown at the top of the page
+- Fetch the employee list from the API when the page loads
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Employee Details
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+When a user selects an employee from the dropdown:
+- Update the URL to `/employee/:id` (where `:id` is the employee's ID)
+- Display the selected employee's information below the dropdown:
+  - Name
+  - Position
+  - Department
+  - Email
+  - Phone
+  - Profile image
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 4. Direct URL Navigation
 
-## Learn More
+- Users should be able to navigate directly to `/employee/:id` via URL
+- When loading the page with an employee ID in the URL, that employee should be pre-selected in the dropdown
+- The employee's information should be displayed automatically
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Requirements
 
-### Code Splitting
+### Technical Requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Routing**: Use React Router for navigation between pages
+2. **State Management**: Use React hooks (`useState`, `useEffect`, etc.)
+3. **API Integration**: Fetch data from the mock API using `fetch` or `axios`
+4. **URL Parameters**: Read and update the employee ID from the URL
 
-### Analyzing the Bundle Size
+### Functionality Requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- All employee data must come from the API (no hardcoded employee info)
+- The dropdown should be populated dynamically from API data
+- Changing the dropdown selection should update the URL
+- The URL should reflect the currently selected employee
+- Direct navigation via URL should work correctly
 
-### Making a Progressive Web App
+### Code Quality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Write clean, readable code
+- Use proper component structure
+- Handle loading states
+- Handle error states (e.g., invalid employee ID)
+- Follow React best practices
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Getting Started
 
-### Deployment
+### 1. Install Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+First, you'll need to install React Router:
 
-### `npm run build` fails to minify
+\`\`\`bash
+npm install react-router-dom
+\`\`\`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 2. Start the Mock API Server
+
+In one terminal, run:
+
+\`\`\`bash
+npm run start:api
+\`\`\`
+
+This starts the JSON Server on \`http://localhost:3001\`
+
+### 3. Start the React Development Server
+
+In another terminal, run:
+
+\`\`\`bash
+npm start
+\`\`\`
+
+This starts the React app on \`http://localhost:3000\`
+
+---
+
+## API Documentation
+
+The mock API is available at \`http://localhost:3001\`
+
+### Endpoints
+
+#### Get All Employees
+\`\`\`
+GET http://localhost:3001/employees
+\`\`\`
+
+Returns an array of all employees.
+
+**Example Response:**
+\`\`\`json
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "position": "Senior Developer",
+    "department": "Engineering",
+    "email": "sarah.johnson@company.com",
+    "phone": "+1 (555) 123-4567",
+    "image": "https://i.pravatar.cc/150?img=1"
+  },
+  ...
+]
+\`\`\`
+
+#### Get Single Employee
+\`\`\`
+GET http://localhost:3001/employees/:id
+\`\`\`
+
+Returns a single employee by ID.
+
+**Example:**
+\`\`\`
+GET http://localhost:3001/employees/1
+\`\`\`
+
+**Example Response:**
+\`\`\`json
+{
+  "id": 1,
+  "name": "Sarah Johnson",
+  "position": "Senior Developer",
+  "department": "Engineering",
+  "email": "sarah.johnson@company.com",
+  "phone": "+1 (555) 123-4567",
+  "image": "https://i.pravatar.cc/150?img=1"
+}
+\`\`\`
+
+---
+
+## Project Structure Suggestions
+
+Here's a suggested structure for your components:
+
+\`\`\`
+src/
+├── components/
+│   ├── LandingPage.js      # Landing page with company info
+│   ├── EmployeesPage.js    # Main employees page with dropdown
+│   └── EmployeeDetails.js  # Employee details display component
+├── App.js                  # Main app with routing
+└── index.js               # Entry point
+\`\`\`
+
+---
+
+## Evaluation Criteria
+
+You will be evaluated on:
+
+1. **Functionality** - Does the application work as specified?
+2. **Code Quality** - Is the code clean, organized, and maintainable?
+3. **React Best Practices** - Are you using React patterns correctly?
+4. **User Experience** - Is the application intuitive and responsive?
+5. **Error Handling** - Does the app handle edge cases gracefully?
+
+---
+
+## Bonus Points (Optional)
+
+If you finish early, consider adding:
+
+- Loading spinners while fetching data
+- Error messages for failed API calls
+- Styled components or CSS modules for better styling
+- A "back to home" button on the employees page
+- Responsive design for mobile devices
+- Search/filter functionality for employees
+
+---
+
+## Tips
+
+- Start with the routing structure in \`App.js\`
+- Build one page at a time
+- Test your API endpoints in the browser before integrating
+- Use React DevTools to debug state and props
+- Check the browser console for errors
+- Use \`useParams\` from React Router to read URL parameters
+- Use \`useNavigate\` from React Router to programmatically navigate
+
+---
+
+## Troubleshooting
+
+### API Not Working?
+Make sure you're running \`npm run start:api\` in a separate terminal.
+
+### Port Already in Use?
+If port 3000 or 3001 is already in use, you can change the ports:
+- For React: Set the \`PORT\` environment variable
+- For API: Modify the \`--port\` flag in \`package.json\`
+
+### CORS Issues?
+JSON Server automatically handles CORS, but make sure you're making requests to \`http://localhost:3001\`
+
+---
+
+## Time Estimate
+
+This project should take approximately **2-4 hours** to complete, depending on your experience level.
+
+---
+
+Good luck! 🚀

@@ -1,0 +1,76 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "position": "Senior Developer",
+      "department": "Engineering",
+      "email": "sarah.johnson@company.com",
+      "phone": "+1 (555) 123-4567",
+      "image": "https://i.pravatar.cc/150?img=1"
+    },
+    {
+      "id": 2,
+      "name": "Michael Chen",
+      "position": "Product Manager",
+      "department": "Product",
+      "email": "michael.chen@company.com",
+      "phone": "+1 (555) 234-5678",
+      "image": "https://i.pravatar.cc/150?img=2"
+    },
+    {
+      "id": 3,
+      "name": "Emily Rodriguez",
+      "position": "UX Designer",
+      "department": "Design",
+      "email": "emily.rodriguez@company.com",
+      "phone": "+1 (555) 345-6789",
+      "image": "https://i.pravatar.cc/150?img=3"
+    },
+    {
+      "id": 4,
+      "name": "David Kim",
+      "position": "DevOps Engineer",
+      "department": "Engineering",
+      "email": "david.kim@company.com",
+      "phone": "+1 (555) 456-7890",
+      "image": "https://i.pravatar.cc/150?img=4"
+    },
+    {
+      "id": 5,
+      "name": "Lisa Anderson",
+      "position": "Marketing Director",
+      "department": "Marketing",
+      "email": "lisa.anderson@company.com",
+      "phone": "+1 (555) 567-8901",
+      "image": "https://i.pravatar.cc/150?img=5"
+    },
+    {
+      "id": 6,
+      "name": "James Wilson",
+      "position": "Backend Developer",
+      "department": "Engineering",
+      "email": "james.wilson@company.com",
+      "phone": "+1 (555) 678-9012",
+      "image": "https://i.pravatar.cc/150?img=6"
+    },
+    {
+      "id": 7,
+      "name": "Maria Garcia",
+      "position": "QA Engineer",
+      "department": "Engineering",
+      "email": "maria.garcia@company.com",
+      "phone": "+1 (555) 789-0123",
+      "image": "https://i.pravatar.cc/150?img=7"
+    },
+    {
+      "id": 8,
+      "name": "Robert Taylor",
+      "position": "Sales Manager",
+      "department": "Sales",
+      "email": "robert.taylor@company.com",
+      "phone": "+1 (555) 890-1234",
+      "image": "https://i.pravatar.cc/150?img=8"
+    }
+  ]
+}
