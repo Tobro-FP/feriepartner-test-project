@@ -1,6 +1,7 @@
 import { useParams } from "react-router"
 import EmployeeDetails from '../components/EmployeeDetails'
 import EmployeeSelectList from "../components/EmployeeSelectList"
+import ComponentLoadError from "../components/ComponentLoadError"
 import useEmployees from "../hooks/useEmployees"
 
 function Employee() {
@@ -17,13 +18,13 @@ function Employee() {
       <header>
         <h1>Employee</h1>
       </header>
-      <main>
-        {employeesLoading && <p>Loading employee list...</p>}
-        {!employeesLoading && employeesError && <p>Employee list could not be loaded.</p>}
+      <main className="flex flex-col items-center">
+        {employeesLoading && <p className="mt-8">Loading employee list...</p>}
+        {!employeesLoading && employeesError && <ComponentLoadError componentName={'employees list'} />}
         {employees && <EmployeeSelectList employees={employees} employeeId={id} />}
 
-        {employeeLoading && <p>Loading employee...</p>}
-        {!employeeLoading && employeeError && <p>An error has occurred and the details cannot be rendered.</p>}
+        {employeeLoading && <p className="mt-8">Loading employee...</p>}
+        {!employeeLoading && (employeeError || (id && !employee)) && <ComponentLoadError componentName={'employee details'} />}
         {employee && !employeeLoading && !employeeError && <EmployeeDetails details={employee} />}
       </main>
     </>

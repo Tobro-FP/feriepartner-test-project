@@ -1,5 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
+  padding: 80px;
+  background: rgb(36, 36, 37);
+  color: wheat;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +17,51 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+select {
+  border: 2px solid wheat;
+  background: none;
+  padding: 10px;
+  transition: 0.4s;
+  @apply rounded-lg;
+}
+
+select:hover,
+select:focus {
+  background: none;
+}
+
+option {
+  @apply flex gap-2 py-5 bg-[#323233];
+}
+
+#root {
+  @apply flex flex-col items-center;
+}
+
+button,
+.link-button {
+  @apply bg-[#9b8e74] text-black font-semibold py-2 px-4 rounded-lg hover:bg-[#7e7058] transition;
+}
+
+header {
+  @apply text-center mb-10;
+}
+
+h1 {
+  @apply font-bold text-5xl;
+}
+
+.profile-label {
+  @apply text-[#9b8e74];
+}
+
+.profile-value {
+  @apply font-semibold;
 }

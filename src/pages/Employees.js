@@ -1,4 +1,5 @@
 import EmployeeSelectList from "../components/EmployeeSelectList"
+import ComponentLoadError from "../components/ComponentLoadError"
 import useEmployees from "../hooks/useEmployees"
 
 function Employees() {
@@ -10,8 +11,8 @@ function Employees() {
         <h1>Employees</h1>
       </header>
       <main>
-        {isLoading && <p>Loading employee list...</p>}
-        {!isLoading && error && <p>An error has occurred and the list can not be rendered.</p>}
+        {isLoading && <p className="mt-8">Loading employee list...</p>}
+        {!isLoading && error && <ComponentLoadError componentName={'employees list'} />}
         {data && !isLoading && !error && <EmployeeSelectList employees={data} />}
       </main>
     </>
