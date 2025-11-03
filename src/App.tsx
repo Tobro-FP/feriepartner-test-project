@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
 import Home from "./components/Home";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
@@ -7,23 +6,33 @@ import Employee from "./components/Employee";
 const App = () => {
   return (
     <Router>
-      <div className="App">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/employees">Employees</Link>
-            </li>
-          </ul>
+      <div className="min-h-screen bg-gray-50">
+        <nav className="bg-white shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex space-x-8 h-16">
+              <Link
+                to="/"
+                className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-600"
+              >
+                Home
+              </Link>
+              <Link
+                to="/employees"
+                className="inline-flex items-center px-1 pt-1 text-gray-900 hover:text-gray-600"
+              >
+                Employees
+              </Link>
+            </div>
+          </div>
         </nav>
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/employees" element={<Employees />} />
-          <Route path="/employee/:id" element={<Employee />} />
-        </Routes>
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/employees" element={<Employees />} />
+            <Route path="/employee/:id" element={<Employee />} />
+          </Routes>
+        </main>
       </div>
     </Router>
   );
