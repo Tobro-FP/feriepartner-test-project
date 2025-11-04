@@ -5,6 +5,14 @@ type EmployeeDetailsProps = {
 };
 
 export const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
+  /**
+   * Naturally, it is possible to fetch individual employee data
+   * from the API using the 'http://localhost:3001/employees/:id' path.
+   * However, since we already have the data, it's more efficient
+   * in this case to pass it as a prop. There are cases where it
+   * will be more efficient to fetch an individual employee's data,
+   * e.g. if the user navigates directly to an employee's page,
+   */
   return (
     <div className="mt-6 bg-white p-6 rounded-lg shadow">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Employee Details</h2>
