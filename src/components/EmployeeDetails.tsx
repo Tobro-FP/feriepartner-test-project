@@ -8,6 +8,9 @@ export const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
   return (
     <div className="mt-6 bg-white p-6 rounded-lg shadow">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Employee Details</h2>
+      <div className="mb-6">
+        <img src={employee.image} alt={employee.name} className="w-48 h-48 object-cover rounded-lg shadow-md" />
+      </div>
       <div className="space-y-3">
         <div>
           <span className="font-semibold text-gray-700">Name:</span>{" "}
