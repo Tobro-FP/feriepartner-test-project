@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { Employee } from "../types/Employee";
@@ -9,10 +10,15 @@ export const EmployeeContainer = () => {
   const navigate = useNavigate();
   const { data, isLoading, error } = useFetch<Employee[]>("http://localhost:3001/employees");
 
-  const handleEmployeeSelect = (employeeId: string | null) => {
-    employeeId ? navigate(`/employees/${employeeId}`) : navigate(`/employees`);
-  };
+  // Memoize handleEmployeeSelect
+  const handleEmployeeSelect = useCallback(
+    (employeeId: string | null) => {
+      employeeId ? navigate(`/employees/${employeeId}`) : navigate(`/employees`);
+    },
+    [navigate]
+  );
 
+  // Handle loading state
   if (isLoading) {
     return (
       <div>
@@ -22,6 +28,7 @@ export const EmployeeContainer = () => {
     );
   }
 
+  // Handle error state
   if (error) {
     return (
       <div>
@@ -31,6 +38,7 @@ export const EmployeeContainer = () => {
     );
   }
 
+  // Handle no data state
   if (!data || data.length === 0) {
     return (
       <div>
@@ -58,6 +66,7 @@ export const EmployeeContainer = () => {
     );
   }
 
+  // Valid ID in URL
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900 mb-4">Employees</h1>
