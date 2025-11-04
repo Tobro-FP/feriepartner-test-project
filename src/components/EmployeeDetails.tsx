@@ -4,7 +4,7 @@ type EmployeeDetailsProps = {
   employee: Employee;
 };
 
-const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
+export const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
   return (
     <div className="mt-6 bg-white p-6 rounded-lg shadow">
       <h2 className="text-2xl font-bold text-gray-900 mb-4">Employee Details</h2>
@@ -33,5 +33,3 @@ const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
     </div>
   );
 };
-
-export default EmployeeDetails;

@@ -1,9 +1,9 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import EmployeeContainer from "./components/EmployeeContainer";
-import Home from "./components/Home";
-import Navigation from "./components/Navigation";
+import { EmployeeContainer } from "./components/EmployeeContainer";
+import { Home } from "./components/Home";
+import { Navigation } from "./components/Navigation";
 
-const App = () => {
+export const App = () => {
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
@@ -19,5 +19,3 @@ const App = () => {
     </Router>
   );
 };
-
-export default App;

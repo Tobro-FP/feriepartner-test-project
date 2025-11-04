@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Home = () => {
+export const Home = () => {
   return (
     <div className="text-center py-12">
       <Link to="/employees">
@@ -10,5 +10,3 @@ const Home = () => {
     </div>
   );
 };
-
-export default Home;

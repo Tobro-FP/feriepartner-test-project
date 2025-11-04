@@ -13,7 +13,7 @@ type UseFetchResult<T> = {
  * Returns an object with the same pattern as @tanstack/react-query's useQuery hook
  * Type-safe with TypeScript generics - you specify what type of data you expect to receive
  */
-const useFetch = <T>(url: string): UseFetchResult<T> => {
+export const useFetch = <T>(url: string): UseFetchResult<T> => {
   const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
@@ -42,5 +42,3 @@ const useFetch = <T>(url: string): UseFetchResult<T> => {
 
   return { data, isLoading, error };
 };
-
-export default useFetch;

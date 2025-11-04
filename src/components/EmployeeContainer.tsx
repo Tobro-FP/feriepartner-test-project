@@ -1,10 +1,10 @@
-import { useParams, useNavigate } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
+import { useNavigate, useParams } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 import { Employee } from "../types/Employee";
-import EmployeeList from "./EmployeeList";
-import EmployeeDetails from "./EmployeeDetails";
+import { EmployeeDetails } from "./EmployeeDetails";
+import { EmployeeList } from "./EmployeeList";
 
-const EmployeeContainer = () => {
+export const EmployeeContainer = () => {
   const { id: urlId } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { data, isLoading, error } = useFetch<Employee[]>("http://localhost:3001/employees");
@@ -66,5 +66,3 @@ const EmployeeContainer = () => {
     </div>
   );
 };
-
-export default EmployeeContainer;

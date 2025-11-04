@@ -6,7 +6,7 @@ type EmployeeListProps = {
   onSelect: (employeeId: string) => void;
 };
 
-const EmployeeList = ({ employees, selectedId, onSelect }: EmployeeListProps) => {
+export const EmployeeList = ({ employees, selectedId, onSelect }: EmployeeListProps) => {
   return (
     <div className="mb-6">
       <label htmlFor="employee-select" className="block text-sm font-medium text-gray-700 mb-2">
@@ -31,5 +31,3 @@ const EmployeeList = ({ employees, selectedId, onSelect }: EmployeeListProps) =>
     </div>
   );
 };
-
-export default EmployeeList;
