@@ -11,8 +11,8 @@ const EmployeeContainer = () => {
     "http://localhost:3001/employees"
   );
 
-  const handleEmployeeSelect = (employeeId: string) => {
-    navigate(`/employees/${employeeId}`);
+  const handleEmployeeSelect = (employeeId: string | null) => {
+    employeeId ? navigate(`/employees/${employeeId}`) : navigate(`/employees`);
   };
 
   if (isLoading) {

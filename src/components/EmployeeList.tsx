@@ -23,10 +23,8 @@ const EmployeeList = ({
         id="employee-select"
         value={selectedId ?? ""}
         onChange={(e) => {
-          const value = e.target.value;
-          if (value) {
-            onSelect(value);
-          }
+          const value = e.target?.value;
+          onSelect(value);
         }}
         className="block w-full max-w-md px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500"
       >
