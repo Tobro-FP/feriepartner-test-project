@@ -1,14 +1,17 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { Employee } from "../types/Employee";
 import { EmployeeDetails } from "./EmployeeDetails";
 import { EmployeeList } from "./EmployeeList";
 
+// Could be an ENV variable:
+const API_URL = "http://localhost:3001/employees";
+
 export const EmployeeContainer = () => {
   const { id: urlId } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { data, isLoading, error } = useFetch<Employee[]>("http://localhost:3001/employees");
+  const { data, isLoading, error } = useFetch<Employee[]>(API_URL);
 
   // Memoize handleEmployeeSelect
   const handleEmployeeSelect = useCallback(
@@ -17,6 +20,10 @@ export const EmployeeContainer = () => {
     },
     [navigate]
   );
+
+  // Memoize selectedEmployee and selectedId
+  const selectedEmployee = useMemo(() => (urlId ? data?.find((emp) => String(emp.id) === urlId) : null), [urlId, data]);
+  const selectedId = useMemo(() => (selectedEmployee ? String(selectedEmployee.id) : null), [selectedEmployee]);
 
   // Handle loading state
   if (isLoading) {
@@ -47,9 +54,6 @@ export const EmployeeContainer = () => {
       </div>
     );
   }
-
-  const selectedEmployee = urlId ? data.find((emp) => String(emp.id) === urlId) : null;
-  const selectedId = selectedEmployee ? String(selectedEmployee.id) : null;
 
   // Handle invalid ID in URL
   if (urlId && !selectedEmployee) {

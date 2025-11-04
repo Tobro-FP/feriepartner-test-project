@@ -1,10 +1,11 @@
+import { memo } from "react";
 import { Employee } from "../types/Employee";
 
 type EmployeeDetailsProps = {
   employee: Employee;
 };
 
-export const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
+export const EmployeeDetails = memo(({ employee }: EmployeeDetailsProps) => {
   /**
    * Naturally, it is possible to fetch individual employee data
    * from the API using the 'http://localhost:3001/employees/:id' path.
@@ -43,4 +44,4 @@ export const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
       </div>
     </div>
   );
-};
+});

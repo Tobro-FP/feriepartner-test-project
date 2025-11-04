@@ -42,3 +42,43 @@ export const useFetch = <T>(url: string): UseFetchResult<T> => {
 
   return { data, isLoading, error };
 };
+
+/**
+ * Possible pattern to avoid memory leaks, react state issues
+ * and overuse of network resources:
+ * 
+useEffect(() => {
+  const abortController = new AbortController();
+  
+  const fetchData = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(url, { signal: abortController.signal });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      if (!abortController.signal.aborted) {
+        setData(result);
+      }
+    } catch (err) {
+      if (!abortController.signal.aborted) {
+        setError(err instanceof Error ? err : new Error("An error occurred"));
+      }
+    } finally {
+      if (!abortController.signal.aborted) {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  fetchData();
+  
+  return () => {
+    abortController.abort();
+  };
+}, [url]);
+
+ * */
