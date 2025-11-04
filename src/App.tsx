@@ -12,7 +12,8 @@ export const App = () => {
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/employees/:id?" element={<EmployeeContainer />} />
+            <Route path="/employees" element={<EmployeeContainer />} />
+            <Route path="/employee/:id" element={<EmployeeContainer />} />
           </Routes>
         </main>
       </div>

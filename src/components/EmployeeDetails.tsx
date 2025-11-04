@@ -1,6 +1,13 @@
 import { memo } from "react";
 import { Employee } from "../types/Employee";
 
+/**
+ * Props are not exported by default as they're only used internally.
+ * Export them if we need to:
+ * - Write unit tests that need to mock these props
+ * - Reuse the type definition in other components
+ * - Create wrapper components that extend these props
+ */
 type EmployeeDetailsProps = {
   employee: Employee;
 };
@@ -12,7 +19,7 @@ export const EmployeeDetails = memo(({ employee }: EmployeeDetailsProps) => {
    * However, since we already have the data, it's more efficient
    * in this case to pass it as a prop. There are cases where it
    * will be more efficient to fetch an individual employee's data,
-   * e.g. if the user navigates directly to an employee's page,
+   * e.g. if the user navigates directly to an employee's page.
    */
   return (
     <div className="mt-6 bg-white p-6 rounded-lg shadow">
@@ -45,3 +52,5 @@ export const EmployeeDetails = memo(({ employee }: EmployeeDetailsProps) => {
     </div>
   );
 });
+
+EmployeeDetails.displayName = "EmployeeDetails";

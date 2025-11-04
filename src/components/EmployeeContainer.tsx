@@ -6,8 +6,9 @@ import { EmployeeDetails } from "./EmployeeDetails";
 import { EmployeeList } from "./EmployeeList";
 
 /**
- * This component is responsible for the page layout and title.
- * It is used by the EmployeeContainer component.
+ * Local layout component for consistent page structure.
+ * Kept in this file for this demo.
+ * Could be extracted to a separate file (e.g., src/components/PageLayout.tsx)
  */
 const PageLayout = ({ children }: { children: React.ReactNode }) => (
   <div>
@@ -31,7 +32,7 @@ export const EmployeeContainer = () => {
   // Memoize handleEmployeeSelect
   const handleEmployeeSelect = useCallback(
     (employeeId: string | null) => {
-      employeeId ? navigate(`/employees/${employeeId}`) : navigate(`/employees`);
+      employeeId ? navigate(`/employee/${employeeId}`) : navigate(`/employees`);
     },
     [navigate]
   );

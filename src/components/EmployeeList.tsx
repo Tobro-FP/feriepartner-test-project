@@ -1,17 +1,21 @@
 import { memo, useCallback } from "react";
 import { Employee } from "../types/Employee";
 
+/**
+ * Props are not exported in this demo.
+ */
 type EmployeeListProps = {
   employees: Employee[];
   selectedId: string | null;
-  onSelect: (employeeId: string) => void;
+  onSelect: (employeeId: string | null) => void;
 };
 
 export const EmployeeList = memo(({ employees, selectedId, onSelect }: EmployeeListProps) => {
   // Memoize handleChange
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      onSelect(e.target.value);
+      const value = e.target.value;
+      onSelect(value || null);
     },
     [onSelect]
   );
@@ -37,3 +41,5 @@ export const EmployeeList = memo(({ employees, selectedId, onSelect }: EmployeeL
     </div>
   );
 });
+
+EmployeeList.displayName = "EmployeeList";
