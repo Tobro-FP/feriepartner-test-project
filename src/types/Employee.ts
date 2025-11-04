@@ -1,5 +1,5 @@
 export type Employee = {
-  id: string; // json-server always converts id to string (v1.0+)
+  id: string | number; // json-server behavior varies - handle both types
   name: string;
   position: string;
   department: string;

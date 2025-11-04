@@ -7,9 +7,7 @@ type EmployeeDetailsProps = {
 const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
   return (
     <div className="mt-6 bg-white p-6 rounded-lg shadow">
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">
-        Employee Details
-      </h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-4">Employee Details</h2>
       <div className="space-y-3">
         <div>
           <span className="font-semibold text-gray-700">Name:</span>{" "}
@@ -37,4 +35,3 @@ const EmployeeDetails = ({ employee }: EmployeeDetailsProps) => {
 };
 
 export default EmployeeDetails;
-

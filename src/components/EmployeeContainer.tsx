@@ -7,9 +7,7 @@ import EmployeeDetails from "./EmployeeDetails";
 const EmployeeContainer = () => {
   const { id: urlId } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { data, isLoading, error } = useFetch<Employee[]>(
-    "http://localhost:3001/employees"
-  );
+  const { data, isLoading, error } = useFetch<Employee[]>("http://localhost:3001/employees");
 
   const handleEmployeeSelect = (employeeId: string | null) => {
     employeeId ? navigate(`/employees/${employeeId}`) : navigate(`/employees`);
@@ -42,23 +40,18 @@ const EmployeeContainer = () => {
     );
   }
 
-  const selectedEmployee = urlId ? data.find((emp) => emp.id === urlId) : null;
-  const selectedId = selectedEmployee ? selectedEmployee.id : null;
+  const selectedEmployee = urlId ? data.find((emp) => String(emp.id) === urlId) : null;
+  const selectedId = selectedEmployee ? String(selectedEmployee.id) : null;
 
   // Handle invalid ID in URL
   if (urlId && !selectedEmployee) {
     return (
       <div>
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Employees</h1>
-        <EmployeeList
-          employees={data}
-          selectedId={null}
-          onSelect={handleEmployeeSelect}
-        />
+        <EmployeeList employees={data} selectedId={null} onSelect={handleEmployeeSelect} />
         <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-4">
           <p className="text-red-600">
-            Employee with ID {urlId} not found. Please select an employee from
-            the dropdown.
+            Employee with ID {urlId} not found. Please select an employee from the dropdown.
           </p>
         </div>
       </div>
@@ -68,11 +61,7 @@ const EmployeeContainer = () => {
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900 mb-4">Employees</h1>
-      <EmployeeList
-        employees={data}
-        selectedId={selectedId}
-        onSelect={handleEmployeeSelect}
-      />
+      <EmployeeList employees={data} selectedId={selectedId} onSelect={handleEmployeeSelect} />
       {selectedEmployee && <EmployeeDetails employee={selectedEmployee} />}
     </div>
   );

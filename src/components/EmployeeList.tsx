@@ -6,17 +6,10 @@ type EmployeeListProps = {
   onSelect: (employeeId: string) => void;
 };
 
-const EmployeeList = ({
-  employees,
-  selectedId,
-  onSelect,
-}: EmployeeListProps) => {
+const EmployeeList = ({ employees, selectedId, onSelect }: EmployeeListProps) => {
   return (
     <div className="mb-6">
-      <label
-        htmlFor="employee-select"
-        className="block text-sm font-medium text-gray-700 mb-2"
-      >
+      <label htmlFor="employee-select" className="block text-sm font-medium text-gray-700 mb-2">
         Select an employee:
       </label>
       <select
@@ -30,7 +23,7 @@ const EmployeeList = ({
       >
         <option value="">-- Choose an employee --</option>
         {employees.map((employee) => (
-          <option key={employee.id} value={employee.id}>
+          <option key={employee.id} value={String(employee.id)}>
             {employee.name} - {employee.position}
           </option>
         ))}
