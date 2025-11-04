@@ -1,6 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Employee from "./components/Employee";
-import Employees from "./components/Employees";
+import EmployeeContainer from "./components/EmployeeContainer";
 import Home from "./components/Home";
 import Navigation from "./components/Navigation";
 
@@ -13,8 +12,7 @@ const App = () => {
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/employees" element={<Employees />} />
-            <Route path="/employee/:id" element={<Employee />} />
+            <Route path="/employees/:id?" element={<EmployeeContainer />} />
           </Routes>
         </main>
       </div>
